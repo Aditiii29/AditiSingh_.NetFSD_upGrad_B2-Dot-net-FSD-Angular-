@@ -83,10 +83,12 @@ function saveLocation(lat, lon) {
         time: new Date().toLocaleString()
     };
 
-    locations.unshift(newEntry); // Add new at top
+    // Add new entry to the beginning of the array
+    locations.unshift(newEntry); 
 
+    // Keep only the last 5 entries
     if (locations.length > 5) {
-        locations.pop(); // Keep only last 5
+        locations.pop(); 
     }
 
     localStorage.setItem("locationHistory", JSON.stringify(locations));
