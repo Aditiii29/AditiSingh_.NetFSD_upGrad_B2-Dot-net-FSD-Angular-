@@ -1,22 +1,38 @@
+-- Customers who have placed orders
 SELECT 
     c.first_name + ' ' + c.last_name AS full_name,
 
-    ISNULL(SUM(oi.quantity * oi.list_price),0) AS total_order_value,
+    (SELECT SUM(oi.quantity * oi.list_price)
+     FROM orders o
+     INNER JOIN order_items oi
+        ON o.order_id = oi.order_id
+     WHERE o.customer_id = c.customer_id) AS total_order_value,
 
-    CASE 
-        WHEN ISNULL(SUM(oi.quantity * oi.list_price),0) > 10000 THEN 'Premium'
-        WHEN ISNULL(SUM(oi.quantity * oi.list_price),0) BETWEEN 5000 AND 10000 THEN 'Regular'
-        WHEN ISNULL(SUM(oi.quantity * oi.list_price),0) < 5000 THEN 'Basic'
+    CASE
+        WHEN (SELECT SUM(oi.quantity * oi.list_price)
+              FROM orders o
+              INNER JOIN order_items oi
+                 ON o.order_id = oi.order_id
+              WHERE o.customer_id = c.customer_id) > 10000 THEN 'Premium'
+
+        WHEN (SELECT SUM(oi.quantity * oi.list_price)
+              FROM orders o
+              INNER JOIN order_items oi
+                 ON o.order_id = oi.order_id
+              WHERE o.customer_id = c.customer_id) BETWEEN 5000 AND 10000 THEN 'Regular'
+
+        ELSE 'Basic'
     END AS customer_category
 
 FROM customers c
-LEFT JOIN orders o 
-    ON c.customer_id = o.customer_id
-LEFT JOIN order_items oi 
-    ON o.order_id = oi.order_id
+WHERE c.customer_id IN (SELECT customer_id FROM orders)
 
-GROUP BY 
-    c.first_name,
-    c.last_name
+UNION
 
-ORDER BY full_name;
+-- Customers who have not placed any orders
+SELECT 
+    c.first_name + ' ' + c.last_name AS full_name,
+    0 AS total_order_value,
+    'No Orders' AS customer_category
+FROM customers c
+WHERE c.customer_id NOT IN (SELECT customer_id FROM orders);
