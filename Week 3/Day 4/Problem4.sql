@@ -12,50 +12,49 @@ CREATE TABLE archived_orders (
 );
 END
 
---1. Archive old rejected orders:  
+--1. Archive old rejected orders: -- 
 INSERT INTO archived_orders
 SELECT *
 FROM orders
 WHERE order_status = 3
-AND order_date < DATEADD(YEAR, -1, GETDATE());
+AND order_date < DATEADD(YEAR,-1,GETDATE());
 
---2. Delete those rejected orders(after archiving):
+--2. Delete those rejected orders(after archiving): --
 DELETE FROM orders
-WHERE order_status = 3
-AND order_date < DATEADD(YEAR, -1, GETDATE());
-
---3.Customers whose all orders are completed:
-SELECT c.customer_id,
-       c.first_name,
-       c.last_name
-FROM customers c
-WHERE NOT EXISTS
+WHERE order_id IN
 (
-    SELECT 1
-    FROM orders o
-    WHERE o.customer_id = c.customer_id
-      AND o.order_status <> 4
+    SELECT order_id
+    FROM archived_orders
 );
 
---4. Order processing delay
+--3.Customers whose all orders are completed:--
+SELECT customer_id
+FROM customers
+WHERE customer_id NOT IN
+(
+    SELECT customer_id
+    FROM orders
+    WHERE order_status <> 4
+);
+
+--4. Order processing delay --
 SELECT 
-    order_id,
-    order_date,
-    shipped_date,
-    DATEDIFF(day, order_date, shipped_date) AS processing_delay
+order_id,
+order_date,
+shipped_date,
+DATEDIFF(DAY, order_date, shipped_date) AS processing_delay
 FROM orders;
 
---5. Mark orders as Delayed/on time
+--5. Mark orders as Delayed/on time --
 SELECT 
-    order_id,
-    order_date,
-    required_date,
-    shipped_date,
+order_id,
+required_date,
+shipped_date,
 
-    CASE 
-        WHEN shipped_date > required_date THEN 'Delayed'
-        ELSE 'On Time'
-    END AS delivery_status
+CASE
+WHEN shipped_date > required_date THEN 'Delayed'
+ELSE 'On Time'
+END AS delivery_status
 
 FROM orders;
 	
