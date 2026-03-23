@@ -11,15 +11,15 @@ namespace AsyncLoggingApp
 
             try
             {
-                // Calling async logging multiple times
+                // Call async methods (run concurrently)
                 Task t1 = WriteLogAsync("User logged in");
                 Task t2 = WriteLogAsync("File uploaded");
                 Task t3 = WriteLogAsync("Data processed");
 
-                // Main thread continues working
+                // Main thread continues
                 Console.WriteLine("Main thread is free to do other work...\n");
 
-                // Wait for all logging tasks to complete
+                // Wait for all logs to complete
                 await Task.WhenAll(t1, t2, t3);
             }
             catch (Exception ex)
@@ -32,7 +32,7 @@ namespace AsyncLoggingApp
             }
         }
 
-        // Async method to simulate file writing
+        // Async method
         static async Task WriteLogAsync(string message)
         {
             Console.WriteLine($"Start writing log: {message}");
