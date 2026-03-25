@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Portfolio</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Aditi Singh</a>
+
+        <!-- Toggle Button (Mobile) -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================= PROFILE SECTION ================= -->
+<div class="container my-5">
+    <div class="row align-items-center">
+
+        <!-- Image -->
+        <div class="col-md-4 text-center mb-4 mb-md-0">
+            <img src="https://via.placeholder.com/200"
+                 class="img-fluid rounded-circle"
+                 alt="Profile Image">
+        </div>
+
+        <!-- About -->
+        <div class="col-md-8">
+            <h2>Hello, I'm Aditi Singh👋</h2>
+            <p class="lead">
+                Fresher Full Stack Developer passionate about building responsive web applications.
+            </p>
+            <button class="btn btn-primary me-2">Download Resume</button>
+            <button class="btn btn-outline-dark">Hire Me</button>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ================= SKILLS SECTION ================= -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">My Skills</h2>
+
+    <div class="row g-4">
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h5 class="card-title">HTML</h5>
+                    <p class="card-text">Semantic and structured web pages.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h5 class="card-title">CSS & Bootstrap</h5>
+                    <p class="card-text">Responsive and modern UI design.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h5 class="card-title">JavaScript</h5>
+                    <p class="card-text">Dynamic and interactive web apps.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h5 class="card-title">.NET</h5>
+                    <p class="card-text">Backend development using ASP.NET.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ================= CONTACT SECTION ================= -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Contact Me</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <p>Email: aditi@email.com</p>
+            <p>Phone: +91 9800500210</p>
+            <button class="btn btn-success">Send Message</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap JS (Needed for navbar toggle) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

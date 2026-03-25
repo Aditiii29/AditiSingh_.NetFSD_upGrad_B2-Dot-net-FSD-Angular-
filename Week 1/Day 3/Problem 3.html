@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Blog Layout</title>
+    <style>
+        /* Reset Basic Styles */
+        body{
+            margin : 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Main Container */
+        .blog-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+         /* Blog Card */
+        .blog-card {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            flex: 1 1 30%;                /* Flexible columns */
+            box-sizing: border-box;
+        }
+
+        /* Title */
+        .blog-card h3 {
+            margin-top: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Description */
+        .blog-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Button */
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* 📱 Mobile View */
+        @media (max-width: 600px) {
+            .blog-card {
+                flex: 1 1 100%;         /* Single column */
+            }
+        }
+
+        /* 📲 Tablet View */
+        @media (min-width: 601px) and (max-width: 900px) {
+            .blog-card {
+                flex: 1 1 45%;      /* Two columns */
+            }
+        }
+    </style>
+    </head>
+
+<body>
+
+    <header>
+        <h1>My Blog</h1>
+    </header>
+
+    <main class="blog-container">
+
+        <div class="blog-card">
+            <h3>Understanding HTML5</h3>
+            <p>Learn the fundamentals of HTML5 and how to structure modern web pages effectively.</p>
+            <button class="btn">Read More</button>
+        </div>
+
+        <div class="blog-card">
+            <h3>Mastering CSS Flexbox</h3>
+            <p>Explore how Flexbox helps in creating responsive and flexible layouts easily.</p>
+            <button class="btn">Read More</button>
+        </div>
+
+        <div class="blog-card">
+            <h3>JavaScript Basics</h3>
+            <p>Understand variables, functions, and DOM manipulation in JavaScript.</p>
+            <button class="btn">Read More</button>
+        </div>
+
+        <div class="blog-card">
+            <h3>Responsive Web Design</h3>
+            <p>Learn how media queries help create layouts for different screen sizes.</p>
+            <button class="btn">Read More</button>
+        </div>
+
+    </main>
+
+</body>
+</html>
