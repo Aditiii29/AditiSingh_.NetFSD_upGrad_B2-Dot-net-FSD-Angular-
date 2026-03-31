@@ -1,0 +1,26 @@
+﻿@model ContactManagementWebApplication.Models.ContactInfo
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-md-5 mx-auto p-4">
+    <h4 class="mb-3">Contact Details</h4>
+    @if (Model == null)
+    {
+        <div class="alert alert-danger">@ViewBag.Message</div>
+    }
+    else
+    {
+        <table class="table table-borderless">
+            <tr><td><b>ID</b></td><td>@Model.ContactId</td></tr>
+            <tr><td><b>First Name</b></td><td>@Model.FirstName</td></tr>
+            <tr><td><b>Last Name</b></td><td>@Model.LastName</td></tr>
+            <tr><td><b>Company</b></td><td>@Model.CompanyName</td></tr>
+            <tr><td><b>Email</b></td><td>@Model.EmailId</td></tr>
+            <tr><td><b>Mobile</b></td><td>@Model.MobileNo</td></tr>
+            <tr><td><b>Designation</b></td><td>@Model.Designation</td></tr>
+        </table>
+    }
+    <a href="/Contact/ShowContacts" class="btn btn-primary">Back</a>
+    <a href="/Contact/AddContact" class="btn btn-outline-primary">Add Contact</a>
+</div>
