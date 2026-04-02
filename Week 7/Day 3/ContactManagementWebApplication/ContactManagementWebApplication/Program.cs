@@ -2,7 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-// 🔥 DI Registration
+// DI Registration
 builder.Services.AddSingleton<ContactManagementWebApplication.Services.IContactService, ContactManagementWebApplication.Services.ContactService>();
 
 var app = builder.Build();
