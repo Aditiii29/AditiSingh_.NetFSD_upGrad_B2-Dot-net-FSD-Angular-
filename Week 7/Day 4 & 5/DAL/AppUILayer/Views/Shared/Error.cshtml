@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="container mt-4">
+    <div class="alert alert-danger">
+        <h1 class="text-danger">⚠️ Something went wrong!</h1>
+        <p>An error occurred while processing your request.</p>
+        <a asp-controller="Contact" asp-action="ShowContacts"
+           class="btn btn-primary">Go to Contacts</a>
+        <a asp-controller="Home" asp-action="Index"
+           class="btn btn-secondary">Go to Home</a>
+    </div>
+</div>
