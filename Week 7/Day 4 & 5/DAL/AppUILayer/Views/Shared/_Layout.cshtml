@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Contact Management</title>
+
+    <!-- Bootstrap CSS - using your local file -->
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand"
+                   asp-controller="Contact"
+                   asp-action="ShowContacts">
+                📋 Contact Management
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white"
+                           asp-controller="Home"
+                           asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white"
+                           asp-controller="Home"
+                           asp-action="Privacy">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white"
+                           asp-controller="Contact"
+                           asp-action="ShowContacts">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page content renders here -->
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">© 2026 Contact Management System</p>
+    </footer>
+
+    <!-- Bootstrap JS - using your local file -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

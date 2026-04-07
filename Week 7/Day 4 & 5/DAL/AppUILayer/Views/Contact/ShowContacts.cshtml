@@ -1,0 +1,68 @@
+﻿@model List<DAL.Model.ContactInfo>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "All Contacts";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>📋 Contact List</h2>
+        <a href="/Contact/AddContact"
+           class="btn btn-success">+ Add New Contact</a>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            No contacts found. Click "+ Add New Contact" to add one.
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Designation</th>
+                    <th>Company</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var contact in Model)
+                {
+                    <tr>
+                        <td>@contact.FirstName @contact.LastName</td>
+                        <td>@contact.EmailId</td>
+                        <td>@contact.MobileNo</td>
+                        <td>@contact.Designation</td>
+                        <td>@contact.CompanyData?.CompanyName</td>
+                        <td>@contact.DepartmentData?.DepartmentName</td>
+                        <td>
+                            <a asp-controller="Contact"
+                               asp-action="Details"
+                               asp-route-id="@contact.ContactId"
+                               class="btn btn-info btn-sm">View</a>
+
+                            <a asp-controller="Contact"
+                               asp-action="EditContact"
+                               asp-route-id="@contact.ContactId"
+                               class="btn btn-warning btn-sm">Edit</a>
+
+                            <a asp-controller="Contact"
+                                   asp-action="DeleteContact"
+                                   asp-route-id="@contact.ContactId"
+                                   class="btn btn-danger btn-sm"
+                                   onclick="return confirm('Are you sure?')">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

@@ -1,0 +1,23 @@
+﻿@model List<ContactManagementWebApplication.Models.ContactInfo>
+
+<h2>All Contacts</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+    </tr>
+
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.ContactId</td>
+            <td>@c.FirstName @c.LastName</td>
+            <td>@c.EmailId</td>
+            <td>@c.MobileNo</td>
+        </tr>
+    }
+    
+</table>

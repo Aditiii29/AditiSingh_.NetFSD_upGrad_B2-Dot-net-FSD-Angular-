@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Product Entry";
+}
+
+<h2>Add Product</h2>
+
+<form method="post" action="/product/add">
+
+    Product Name:
+    <input type="text" name="name" required />
+    <br /><br />
+
+    Price:
+    <input type="number" name="price" required />
+    <br /><br />
+
+    Quantity:
+    <input type="number" name="quantity" required />
+    <br /><br />
+
+    <button type="submit">Add Product</button>
+
+</form>
+
+<hr />
+
+<h3>Product List</h3>
+
+@if (ViewBag.Products != null)
+{
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+
+        @foreach (var item in ViewBag.Products)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+            </tr>
+        }
+    </table>
+}

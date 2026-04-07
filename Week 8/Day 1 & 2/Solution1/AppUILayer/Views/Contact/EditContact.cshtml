@@ -1,0 +1,30 @@
+﻿@model DAL.Models.ContactInfo
+
+<h2>Edit Contact</h2>
+
+<form asp-action="EditContact" method="post">
+
+    <input type="hidden" asp-for="ContactId" />
+
+    <input asp-for="FirstName" /><br />
+    <input asp-for="LastName" /><br />
+    <input asp-for="EmailId" /><br />
+    <input asp-for="MobileNo" /><br />
+    <input asp-for="Designation" /><br />
+
+    <select asp-for="CompanyId">
+        @foreach (var c in ViewBag.Companies)
+        {
+            <option value="@c.CompanyId">@c.CompanyName</option>
+        }
+    </select><br />
+
+    <select asp-for="DepartmentId">
+        @foreach (var d in ViewBag.Departments)
+        {
+            <option value="@d.DepartmentId">@d.DepartmentName</option>
+        }
+    </select><br />
+
+    <button type="submit">Update</button>
+</form>

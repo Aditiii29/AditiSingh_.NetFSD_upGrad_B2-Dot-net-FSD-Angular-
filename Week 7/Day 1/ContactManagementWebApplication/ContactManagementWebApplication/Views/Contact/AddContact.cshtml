@@ -1,0 +1,18 @@
+﻿@model ContactManagementWebApplication.Models.ContactInfo
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-md-6 mx-auto p-4">
+    <h4 class="mb-3">Add New Contact</h4>
+    <form asp-action="AddContact" asp-controller="Contact" method="post">
+        <div class="mb-2"><label>First Name</label><input asp-for="FirstName" class="form-control" required /></div>
+        <div class="mb-2"><label>Last Name</label><input asp-for="LastName" class="form-control" required /></div>
+        <div class="mb-2"><label>Company Name</label><input asp-for="CompanyName" class="form-control" required /></div>
+        <div class="mb-2"><label>Designation</label><input asp-for="Designation" class="form-control" required /></div>
+        <div class="mb-2"><label>Email ID</label><input asp-for="EmailId" type="email" class="form-control" required /></div>
+        <div class="mb-3"><label>Mobile No</label><input asp-for="MobileNo" type="number" class="form-control" required /></div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="/Contact/ShowContacts" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

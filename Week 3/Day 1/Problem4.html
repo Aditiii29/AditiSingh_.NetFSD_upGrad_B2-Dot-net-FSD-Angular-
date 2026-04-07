@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive To-Do List</title>
+
+    <!-- Bootstrap for simple styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+<div class="container my-5">
+    <div class="card p-4 shadow-sm">
+
+        <h3 class="text-center mb-4">📝 To-Do List</h3>
+
+        <!-- INPUT SECTION -->
+        <div class="input-group mb-3">
+            <input type="text" id="taskInput" class="form-control" placeholder="Enter new task">
+            <button class="btn btn-primary" id="addTaskBtn">Add</button>
+        </div>
+
+        <!-- COUNTERS -->
+        <div class="mb-3">
+            <span>Total Tasks: <strong id="totalCount">0</strong></span> |
+            <span>Completed: <strong id="completedCount">0</strong></span>
+        </div>
+
+        <!-- TASK LIST -->
+        <ul class="list-group" id="taskList"></ul>
+
+    </div>
+</div>
+
+<script>
+
+$(document).ready(function() {
+
+    let totalTasks = 0;
+    let completedTasks = 0;
+
+    // ADD TASK
+    $("#addTaskBtn").click(function() {
+
+        let taskText = $("#taskInput").val().trim();
+
+        if (taskText === "") return;
+
+        $("#taskList").append(`
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="task-text">${taskText}</span>
+                <div>
+                    <button class="btn btn-success btn-sm completeBtn me-2">✔</button>
+                    <button class="btn btn-danger btn-sm deleteBtn">✖</button>
+                </div>
+            </li>
+        `);
+
+        totalTasks++;
+        $("#totalCount").text(totalTasks);
+
+        $("#taskInput").val("");
+    });
+
+    // EVENT DELEGATION FOR COMPLETE
+    $("#taskList").on("click", ".completeBtn", function() {
+
+        let taskText = $(this).closest("li").find(".task-text");
+
+        taskText.toggleClass("completed");
+
+        if (taskText.hasClass("completed")) {
+            completedTasks++;
+        } else {
+            completedTasks--;
+        }
+
+        $("#completedCount").text(completedTasks);
+    });
+
+    // EVENT DELEGATION FOR DELETE
+    $("#taskList").on("click", ".deleteBtn", function() {
+
+        let taskItem = $(this).closest("li");
+        let taskText = taskItem.find(".task-text");
+
+        if (taskText.hasClass("completed")) {
+            completedTasks--;
+            $("#completedCount").text(completedTasks);
+        }
+
+        taskItem.remove();
+
+        totalTasks--;
+        $("#totalCount").text(totalTasks);
+    });
+
+});
+
+</script>
+
+</body>
+</html>

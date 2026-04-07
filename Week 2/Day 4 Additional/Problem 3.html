@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Registration Dashboard</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"      
+          rel="stylesheet">
+</head>
+<body>
+
+<div class="container my-5">
+
+    <h2 class="text-center mb-4">Training Institute Dashboard</h2>
+
+    <div class="row g-4">
+
+        <!-- LEFT SIDE : REGISTRATION FORM -->
+        <div class="col-lg-6">
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <h4 class="mb-3">Student Registration</h4>
+
+                    <form>
+
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Course</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Contact Number</label>
+                            <input type="tel" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            Register
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE : DATA TABLE -->
+        <div class="col-lg-6">
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <h4 class="mb-3">Registered Students</h4>
+
+                    <div class="table-responsive">
+
+                        <table class="table table-striped table-bordered table-hover">
+
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Course</th>
+                                    <th>Email</th>
+                                    <th>Contact</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Aditi Singh</td>
+                                    <td>Full Stack Development</td>
+                                    <td>aditi@email.com</td>
+                                    <td>9876444210</td>
+                                </tr>
+                                <tr>
+                                    <td>Ashish Patil</td>
+                                    <td>Data Science</td>
+                                    <td>ashish@email.com</td>
+                                    <td>9100006780</td>
+                                </tr>
+                                <tr>
+                                    <td>Priya Verma</td>
+                                    <td>UI/UX Design</td>
+                                    <td>priya@email.com</td>
+                                    <td>9988776655</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
