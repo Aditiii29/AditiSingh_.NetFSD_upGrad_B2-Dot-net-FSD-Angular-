@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "ContactService.API\\ContactService.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "CategoryService.API\\CategoryService.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "APIGateway\\APIGateway.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
