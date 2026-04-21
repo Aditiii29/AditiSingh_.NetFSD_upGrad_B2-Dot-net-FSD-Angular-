@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Auth Service\\Auth Service.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "ContactService\\ContactService.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "CategoryService\\CategoryService.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "ApiGateway\\ApiGateway.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
