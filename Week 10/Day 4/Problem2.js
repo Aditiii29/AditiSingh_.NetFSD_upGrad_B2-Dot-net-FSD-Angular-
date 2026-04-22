@@ -1,10 +1,6 @@
-"use strict";
 // ============================================================
 //  USER NOTIFICATION SYSTEM - TypeScript Functions
 // ============================================================
-// -------------------------------------------------------
-// STEP 1: Function with Required Parameters
-// -------------------------------------------------------
 function getWelcomeMessage(name) {
     return `Welcome, ${name}! We are glad to have you here.`;
 }
@@ -84,3 +80,4 @@ console.log("\n--- Notification Service (Lexical this) ---");
 NotificationService.getAppNotification();
 NotificationService.getWelcomeNotification("John");
 console.log("\n===============================================");
+export {};

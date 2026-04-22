@@ -5,7 +5,7 @@
 // -------------------------------------------------------
 // STEP 1: Variable Declaration with Explicit Types
 // -------------------------------------------------------
-
+export {};
 // 'const' is used for values that NEVER change
 const userName: string = "John Doe";
 const email: string = "john@example.com";

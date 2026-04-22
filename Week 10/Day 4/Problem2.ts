@@ -6,7 +6,7 @@
 // -------------------------------------------------------
 // STEP 1: Function with Required Parameters
 // -------------------------------------------------------
-
+export {};
 function getWelcomeMessage(name: string): string {
   return `Welcome, ${name}! We are glad to have you here.`;
 }
