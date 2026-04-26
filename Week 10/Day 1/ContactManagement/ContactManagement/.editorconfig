@@ -1,0 +1,52 @@
+# Top-most EditorConfig file
+root = true
+
+[*.cs]
+
+# Indentation
+indent_style = space
+indent_size = 4
+end_of_line = crlf
+charset = utf-8-bom
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Naming Rules
+# ✅ Interfaces must start with I (e.g., IContactRepository)
+dotnet_naming_rule.interfaces_must_start_with_I.symbols = interface_symbols
+dotnet_naming_rule.interfaces_must_start_with_I.style  = prefix_I_style
+dotnet_naming_rule.interfaces_must_start_with_I.severity = warning
+
+dotnet_naming_symbols.interface_symbols.applicable_kinds = interface
+
+dotnet_naming_style.prefix_I_style.required_prefix = I
+dotnet_naming_style.prefix_I_style.capitalization    = pascal_case
+
+# ✅ Private fields must use camelCase with underscore prefix
+dotnet_naming_rule.private_fields.symbols  = private_field_symbols
+dotnet_naming_rule.private_fields.style    = camel_case_underscore_style
+dotnet_naming_rule.private_fields.severity = warning
+
+dotnet_naming_symbols.private_field_symbols.applicable_kinds           = field
+dotnet_naming_symbols.private_field_symbols.applicable_accessibilities = private
+
+dotnet_naming_style.camel_case_underscore_style.required_prefix = _
+dotnet_naming_style.camel_case_underscore_style.capitalization   = camel_case
+
+# ✅ Public members must use PascalCase
+dotnet_naming_rule.public_members_pascal_case.symbols  = public_symbols
+dotnet_naming_rule.public_members_pascal_case.style    = pascal_case_style
+dotnet_naming_rule.public_members_pascal_case.severity = warning
+
+dotnet_naming_symbols.public_symbols.applicable_kinds           = method, property
+dotnet_naming_symbols.public_symbols.applicable_accessibilities = public
+
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# Code Quality Rules
+dotnet_diagnostic.CA1822.severity = warning   # Mark members static if possible
+dotnet_diagnostic.CA1305.severity = warning   # Use IFormatProvider
+dotnet_diagnostic.CA2201.severity = warning   # Do not raise reserved exception types
+dotnet_diagnostic.CA1062.severity = warning   # Validate arguments of public methods
+dotnet_diagnostic.IDE0059.severity = warning  # Unnecessary assignment of a value
+dotnet_diagnostic.IDE0060.severity = warning  # Remove unused parameter
