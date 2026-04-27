@@ -1,0 +1,86 @@
+<!-- app.html -->
+
+<div class="container">
+
+  <!-- ✅ Page Heading -->
+  <h1>{{ title }}</h1>
+  <p class="subtitle">Manage your contacts efficiently</p>
+
+  <!-- ==========================================
+       ✅ *ngIf — Show message if list is EMPTY
+       ========================================== -->
+  <div *ngIf="contacts.length === 0" class="no-contacts">
+    <p>⚠️ No Contacts Available</p>
+  </div>
+
+  <!-- ==========================================
+       ✅ *ngIf — Show table only if list has data
+       ========================================== -->
+  <table *ngIf="contacts.length > 0">
+
+    <!-- Table Header -->
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <!-- Table Body -->
+    <tbody>
+
+      <!-- ✅ *ngFor — Loop through each contact -->
+      <tr *ngFor="let contact of contacts"
+
+          [ngClass]="{
+            'active-contact':   contact.isActive,
+            'inactive-contact': !contact.isActive
+          }"
+
+          [ngStyle]="{
+            'color': contact.isActive ? 'green' : 'red'
+          }">
+
+        <!-- Contact ID -->
+        <td>{{ contact.contactId }}</td>
+
+        <!-- Contact Name -->
+        <td>{{ contact.name }}</td>
+
+        <!-- Contact Email -->
+        <td>{{ contact.email }}</td>
+
+        <!-- Contact Phone -->
+        <td>{{ contact.phone }}</td>
+
+        <!-- ✅ *ngIf with else — Show Active or Inactive label -->
+        <td>
+          <span *ngIf="contact.isActive; else inactiveBlock"
+                class="badge badge-active">
+            ✅ Active Contact
+          </span>
+
+          <!-- ✅ else block using ng-template -->
+          <ng-template #inactiveBlock>
+            <span class="badge badge-inactive">
+              ⚠️ Inactive Contact
+            </span>
+          </ng-template>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- Summary Section -->
+  <div class="summary">
+    <p>
+      Total Contacts: <strong>{{ contacts.length }}</strong>
+    </p>
+  </div>
+
+</div>
