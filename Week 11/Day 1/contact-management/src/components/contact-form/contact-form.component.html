@@ -1,0 +1,35 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+
+  <!-- Name -->
+  <input type="text" name="name" [(ngModel)]="contact.name" #name="ngModel" required placeholder="Name">
+  <div *ngIf="name.invalid && name.touched">
+    Name is required
+  </div>
+
+  <!-- Email -->
+  <input type="email" name="email" [(ngModel)]="contact.email" #email="ngModel" required email placeholder="Email">
+  <div *ngIf="email.invalid && email.touched">
+    Valid email is required
+  </div>
+
+  <!-- Phone -->
+  <input type="text" name="phone" [(ngModel)]="contact.phone" #phone="ngModel" required minlength="10" placeholder="Phone">
+  <div *ngIf="phone.invalid && phone.touched">
+    Phone must be at least 10 digits
+  </div>
+
+  <!-- Status -->
+  <label>
+    <input type="checkbox" name="isActive" [(ngModel)]="contact.isActive">
+    Active
+  </label>
+
+  <button type="submit">Add Contact</button>
+</form>
+
+<hr>
+
+<!-- Display List -->
+<div *ngFor="let c of contacts">
+  <p>{{c.name}} | {{c.email}} | {{c.phone}} | {{c.isActive ? 'Active' : 'Inactive'}}</p>
+</div>
