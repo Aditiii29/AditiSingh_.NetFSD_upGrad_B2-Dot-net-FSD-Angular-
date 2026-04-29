@@ -1,0 +1,80 @@
+<p>contact-form works!</p>
+<h2>Contact Form</h2>
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+  <!-- Name -->
+  <label>Name:</label>
+  <input type="text" formControlName="name">
+
+  <div *ngIf="f['name'].touched && f['name'].invalid">
+    <small *ngIf="f['name'].errors?.['required']">
+      Name is required
+    </small>
+  </div>
+
+  <br>
+
+  <!-- Email -->
+  <label>Email:</label>
+  <input type="email" formControlName="email">
+
+  <div *ngIf="f['email'].touched && f['email'].invalid">
+    <small *ngIf="f['email'].errors?.['required']">
+      Email is required
+    </small>
+    <small *ngIf="f['email'].errors?.['email']">
+      Enter a valid email
+    </small>
+  </div>
+
+  <br>
+
+  <!-- Phone -->
+  <label>Phone:</label>
+  <input type="text" formControlName="phone">
+
+  <div *ngIf="f['phone'].touched && f['phone'].invalid">
+    <small *ngIf="f['phone'].errors?.['required']">
+      Phone is required
+    </small>
+    <small *ngIf="f['phone'].errors?.['minlength']">
+      Minimum 10 digits required
+    </small>
+  </div>
+
+  <br>
+
+  <!-- Status -->
+  <label>
+    <input type="checkbox" formControlName="isActive">
+    Active
+  </label>
+
+  <br><br>
+
+  <button type="submit">Add Contact</button>
+
+</form>
+
+<hr>
+
+<h2>Contact List</h2>
+
+<table border="1" *ngIf="contacts.length > 0">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Status</th>
+  </tr>
+
+  <tr *ngFor="let contact of contacts">
+    <td>{{ contact.contactId }}</td>
+    <td>{{ contact.name }}</td>
+    <td>{{ contact.email }}</td>
+    <td>{{ contact.phone }}</td>
+    <td>{{ contact.isActive ? 'Active' : 'Inactive' }}</td>
+  </tr>
+</table>

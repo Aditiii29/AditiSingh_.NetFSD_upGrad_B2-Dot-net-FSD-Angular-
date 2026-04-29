@@ -1,0 +1,19 @@
+input {
+  display: block;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+small {
+  color: red;
+}
+
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+table {
+  margin-top: 10px;
+  width: 100%;
+}
