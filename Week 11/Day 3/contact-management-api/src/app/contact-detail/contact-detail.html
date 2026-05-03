@@ -1,0 +1,9 @@
+<h2>Contact Detail</h2>
+
+<div *ngIf="contact">
+  <input [(ngModel)]="contact.name"><br>
+  <input [(ngModel)]="contact.email"><br>
+  <input [(ngModel)]="contact.phone"><br>
+
+  <button (click)="update()">Update</button>
+</div>

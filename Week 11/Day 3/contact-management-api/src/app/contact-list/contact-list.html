@@ -1,0 +1,11 @@
+<h2>Contact List</h2>
+
+<a routerLink="/add">Add Contact</a>
+
+<ul>
+  <li *ngFor="let c of contacts">
+    {{ c.name }} -
+    <a [routerLink]="['/detail', c.id]">View</a>
+    <button (click)="delete(c.id)">Delete</button>
+  </li>
+</ul>
