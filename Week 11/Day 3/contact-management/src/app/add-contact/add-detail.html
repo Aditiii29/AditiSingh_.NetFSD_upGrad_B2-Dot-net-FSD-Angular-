@@ -1,0 +1,32 @@
+<h2>➕ Add Contact <span style="font-size:14px; color:red;">(Protected)</span></h2>
+
+<div *ngIf="successMessage"
+  style="background:#e8f5e9; padding:10px; border-left:4px solid green; margin-bottom:15px;">
+  {{ successMessage }}
+</div>
+
+<div style="max-width:400px;">
+  <div style="margin-bottom:15px;">
+    <label><strong>Name:</strong></label><br>
+    <input type="text" [(ngModel)]="newContact.name" name="name" placeholder="Enter full name"
+      style="width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;">
+  </div>
+  <div style="margin-bottom:15px;">
+    <label><strong>Phone:</strong></label><br>
+    <input type="tel" [(ngModel)]="newContact.phone" name="phone" placeholder="Enter phone number"
+      style="width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;">
+  </div>
+  <div style="margin-bottom:15px;">
+    <label><strong>Email:</strong></label><br>
+    <input type="email" [(ngModel)]="newContact.email" name="email" placeholder="Enter email"
+      style="width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;">
+  </div>
+  <button (click)="addContact()"
+    style="background:#4caf50; color:white; padding:10px 20px; border:none; cursor:pointer; border-radius:4px;">
+    💾 Save Contact
+  </button>
+  <button (click)="goBack()"
+    style="margin-left:10px; background:gray; color:white; padding:10px 20px; border:none; cursor:pointer; border-radius:4px;">
+    ← Back
+  </button>
+</div>

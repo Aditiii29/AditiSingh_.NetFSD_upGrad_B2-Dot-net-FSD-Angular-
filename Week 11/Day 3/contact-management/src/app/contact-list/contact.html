@@ -1,0 +1,23 @@
+<h2>📋 Contact List <span style="font-size:14px; color:green;">(Public Page)</span></h2>
+<p style="color:gray;">Click View to see details (login required).</p>
+
+<table border="1" cellpadding="10" cellspacing="0" style="width:100%; border-collapse:collapse;">
+  <thead style="background-color:#3f51b5; color:white;">
+    <tr><th>#</th><th>Name</th><th>Phone</th><th>Email</th><th>Action</th></tr>
+  </thead>
+  <tbody>
+    <!-- ✅ Now reads from shared service -->
+    <tr *ngFor="let contact of contactService.contacts">
+      <td>{{ contact.id }}</td>
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.phone }}</td>
+      <td>{{ contact.email }}</td>
+      <td>
+        <button (click)="viewContact(contact.id)"
+          style="background:#3f51b5; color:white; border:none; padding:6px 12px; cursor:pointer; border-radius:4px;">
+          👁 View
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
